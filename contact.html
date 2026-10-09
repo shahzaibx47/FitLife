@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - FitLife</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo"><div class="logo-icon">💪</div>Fit<span>Life</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="workouts.html">Workouts</a>
+        <a href="exercises.html">Exercises</a>
+        <a href="bmi.html">BMI Calculator</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="active">Contact</a>
+        <div class="mobile-auth" id="mobileAuthGuest">
+          <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+          <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+        </div>
+        <div class="mobile-auth hidden" id="mobileAuthUser">
+          <a href="dashboard.html" class="btn btn-outline btn-sm">Dashboard</a>
+          <button class="btn btn-primary btn-sm" onclick="handleLogout()">Logout</button>
+        </div>
+      </div>
+      <div class="nav-auth">
+        <button class="theme-toggle" id="themeToggle">☀️</button>
+        <div id="authGuest">
+          <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+          <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+        </div>
+        <div id="authUser" class="hidden" style="display:flex;gap:10px;align-items:center;">
+          <a href="dashboard.html" class="btn btn-outline btn-sm">Dashboard</a>
+          <button class="btn btn-primary btn-sm" onclick="handleLogout()">Logout</button>
+        </div>
+      </div>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Contact Us</h1>
+      <p>Have a question or feedback? We'd love to hear from you.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-layout">
+        <div class="contact-info-card">
+          <h3 style="margin-bottom:25px;">Get In Touch</h3>
+          <div class="contact-info-item">
+            <div class="icon">📧</div>
+            <div>
+              <h4>Email</h4>
+              <p><a class="text-muted" href="mailto:shahzaibbaltee78@gmail.com">shahzaibbaltee78@gmail.com</a></p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="icon">📍</div>
+            <div>
+              <h4>Address</h4>
+              <p class="text-muted">Pakistan</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="icon">⏰</div>
+            <div>
+              <h4>Hours</h4>
+              <p class="text-muted">FitLife Project Team · Pakistan</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <h3 style="margin-bottom:20px;">Send a Message</h3>
+          <div id="contactAlert" class="alert"></div>
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="cName">Full Name *</label>
+              <input type="text" id="cName" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="cEmail">Email *</label>
+              <input type="email" id="cEmail" placeholder="you@example.com" required>
+            </div>
+            <div class="form-group">
+              <label for="cPhone">Phone</label>
+              <input type="tel" id="cPhone" placeholder="+92 300 1234567">
+            </div>
+            <div class="form-group">
+              <label for="cSubject">Subject *</label>
+              <input type="text" id="cSubject" placeholder="How can we help?" required>
+            </div>
+            <div class="form-group">
+              <label for="cMessage">Message *</label>
+              <textarea id="cMessage" rows="5" placeholder="Write your message here..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom"><p>&copy; 2026 FitLife. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <script src="js/firebase-config.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = document.getElementById('cName').value.trim();
+      var email = document.getElementById('cEmail').value.trim();
+      var phone = document.getElementById('cPhone').value.trim();
+      var subject = document.getElementById('cSubject').value.trim();
+      var message = document.getElementById('cMessage').value.trim();
+      var alertEl = document.getElementById('contactAlert');
+
+      if (!name || !email || !subject || !message) {
+        alertEl.textContent = 'Please fill in all required fields.';
+        alertEl.className = 'alert alert-error show';
+        return;
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        alertEl.textContent = 'Please enter a valid email address.';
+        alertEl.className = 'alert alert-error show';
+        return;
+      }
+      if (phone && !/^[+\d\s\-()]{7,15}$/.test(phone)) {
+        alertEl.textContent = 'Please enter a valid phone number.';
+        alertEl.className = 'alert alert-error show';
+        return;
+      }
+      if (message.length < 10) {
+        alertEl.textContent = 'Message must be at least 10 characters.';
+        alertEl.className = 'alert alert-error show';
+        return;
+      }
+      var mailSubject = encodeURIComponent(subject + ' — FitLife website');
+      var mailBody = encodeURIComponent('Name: ' + name + '\nReply email: ' + email + '\n\n' + message);
+      window.location.href = 'mailto:shahzaibbaltee78@gmail.com?subject=' + mailSubject + '&body=' + mailBody;
+      alertEl.textContent = 'Your email app should open with your message ready to send.';
+      alertEl.className = 'alert alert-success show';
+    });
+  </script>
+</body>
+</html>

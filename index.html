@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitLife - Transform Your Body. Transform Your Life.</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <!-- Firebase Libraries -->
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">💪</div>
+        Fit<span>Life</span>
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="active">Home</a>
+        <a href="workouts.html">Workouts</a>
+        <a href="exercises.html">Exercises</a>
+        <a href="bmi.html">BMI Calculator</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <!-- Mobile Auth -->
+        <div class="mobile-auth" id="mobileAuthGuest">
+          <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+          <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+        </div>
+        <div class="mobile-auth hidden" id="mobileAuthUser">
+          <a href="dashboard.html" class="btn btn-outline btn-sm">Dashboard</a>
+          <button class="btn btn-primary btn-sm" onclick="handleLogout()">Logout</button>
+        </div>
+      </div>
+
+      <div class="nav-auth">
+        <button class="theme-toggle" id="themeToggle" title="Toggle Theme">☀️</button>
+        <div id="authGuest">
+          <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+          <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+        </div>
+        <div id="authUser" class="hidden" style="display:flex;gap:10px;align-items:center;">
+          <a href="dashboard.html" class="btn btn-outline btn-sm">Dashboard</a>
+          <button class="btn btn-primary btn-sm" onclick="handleLogout()">Logout</button>
+        </div>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">🏋️ Your Fitness Journey Starts Here</div>
+        <h1>Transform Your Body.<br><span class="highlight">Transform Your Life.</span></h1>
+        <p>FitLife is your all-in-one fitness platform. Explore workouts, track progress, calculate BMI, and achieve your goals with expert guidance — all in one place.</p>
+        <div class="hero-btns">
+          <a href="signup.html" class="btn btn-primary btn-lg">Start Your Journey</a>
+          <a href="workouts.html" class="btn btn-outline btn-lg protected-link">Explore Workouts</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <h3>10,000+</h3>
+            <p>Active Users</p>
+          </div>
+          <div class="hero-stat">
+            <h3>100+</h3>
+            <p>Exercises</p>
+          </div>
+          <div class="hero-stat">
+            <h3>50+</h3>
+            <p>Workout Programs</p>
+          </div>
+          <div class="hero-stat">
+            <h3>4</h3>
+            <p>Core Team Members</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== POPULAR WORKOUTS ========== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="subtitle">Training Programs</span>
+        <h2>Popular Workouts</h2>
+        <p>Choose from our carefully designed workout programs for every fitness level.</p>
+      </div>
+      <div class="cards-grid" id="homeWorkouts">
+        <!-- Loaded dynamically or static preview -->
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&h=400&fit=crop" alt="Full Body Strength" class="card-img">
+          <div class="card-body">
+            <h3>Full Body Strength</h3>
+            <div class="card-meta">
+              <span class="badge badge-primary">Strength Training</span>
+              <span class="badge badge-warning">Intermediate</span>
+            </div>
+            <div class="card-info">
+              <span>⏱️ 45 min</span>
+              <span>🔥 350 cal</span>
+            </div>
+            <a href="workouts.html" class="btn btn-primary btn-sm protected-link">View Workout</a>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&h=400&fit=crop" alt="Fat Burn HIIT" class="card-img">
+          <div class="card-body">
+            <h3>Fat Burn HIIT</h3>
+            <div class="card-meta">
+              <span class="badge badge-primary">Fat Loss</span>
+              <span class="badge badge-warning">Intermediate</span>
+            </div>
+            <div class="card-info">
+              <span>⏱️ 30 min</span>
+              <span>🔥 400 cal</span>
+            </div>
+            <a href="workouts.html" class="btn btn-primary btn-sm protected-link">View Workout</a>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1599058945522-28d584b6f14f?w=600&h=400&fit=crop" alt="Home Workout" class="card-img">
+          <div class="card-body">
+            <h3>Home No-Equipment</h3>
+            <div class="card-meta">
+              <span class="badge badge-primary">Home Workout</span>
+              <span class="badge badge-success">Beginner</span>
+            </div>
+            <div class="card-info">
+              <span>⏱️ 20 min</span>
+              <span>🔥 200 cal</span>
+            </div>
+            <a href="workouts.html" class="btn btn-primary btn-sm protected-link">View Workout</a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-30">
+        <a href="workouts.html" class="btn btn-outline protected-link">View All Workouts</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FEATURED EXERCISES ========== -->
+  <section class="section" style="background: var(--secondary);">
+    <div class="container">
+      <div class="section-header">
+        <span class="subtitle">Exercise Library</span>
+        <h2>Featured Exercises</h2>
+        <p>Master the fundamentals with our detailed exercise guides.</p>
+      </div>
+      <div class="cards-grid">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&h=400&fit=crop" alt="Push Ups" class="card-img">
+          <div class="card-body">
+            <h3>Push Ups</h3>
+            <div class="card-meta"><span class="badge badge-info">Chest, Triceps</span></div>
+            <a href="exercise-details.html?id=6" class="btn btn-primary btn-sm protected-link">View Details</a>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1574680178050-55c6a6a96e0a?w=600&h=400&fit=crop" alt="Squats" class="card-img">
+          <div class="card-body">
+            <h3>Squats</h3>
+            <div class="card-meta"><span class="badge badge-info">Quads, Glutes</span></div>
+            <a href="exercise-details.html?id=2" class="btn btn-primary btn-sm protected-link">View Details</a>
+          </div>
+        </div>
+        <div class="card">
+          <img src="assets/plank-exercise.svg" alt="Plank" class="card-img">
+          <div class="card-body">
+            <h3>Plank</h3>
+            <div class="card-meta"><span class="badge badge-info">Core</span></div>
+            <a href="exercise-details.html?id=6" class="btn btn-primary btn-sm protected-link">View Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-30">
+        <a href="exercises.html" class="btn btn-outline">Browse All Exercises</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE ========== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="subtitle">Why FitLife</span>
+        <h2>Why Choose FitLife?</h2>
+        <p>Everything you need to reach your fitness goals in one platform.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">📋</div>
+          <h3>Workout Library</h3>
+          <p>50+ professionally designed workout programs for all levels and goals.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🏋️</div>
+          <h3>Exercise Guides</h3>
+          <p>Detailed instructions, tips, and safety advice for every exercise.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>BMI Calculator</h3>
+          <p>Track your body metrics and understand your health status instantly.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⏱️</div>
+          <h3>Workout Timer</h3>
+          <p>Built-in timer to keep your sessions structured and efficient.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">❤️</div>
+          <h3>Favorites</h3>
+          <p>Save your preferred exercises and access them anytime.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TESTIMONIALS ========== -->
+  <section class="section" style="background: var(--secondary);">
+    <div class="container">
+      <div class="section-header">
+        <span class="subtitle">Testimonials</span>
+        <h2>What Our Members Say</h2>
+      </div>
+      <div class="cards-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-text">"FitLife completely changed my approach to fitness. The workout plans are clear, effective, and easy to follow. I've lost 12kg in 4 months!"</p>
+          <div class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" alt="Sarah">
+            <div>
+              <h4>Sarah Ahmed</h4>
+              <p>Member since 2024</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">"The exercise library is fantastic. Detailed instructions helped me learn proper form. The BMI calculator and timer are great extras!"</p>
+          <div class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" alt="James">
+            <div>
+              <h4>James Khan</h4>
+              <p>Member since 2023</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">"As a beginner, I was intimidated by gyms. FitLife's home workouts and beginner programs gave me the confidence to start and stick with it."</p>
+          <div class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop" alt="Ayesha">
+            <div>
+              <h4>Ayesha Malik</h4>
+              <p>Member since 2025</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA ========== -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-section">
+        <h2>Ready to Transform Your Life?</h2>
+        <p>Join thousands of members who are already achieving their fitness goals with FitLife.</p>
+        <a href="signup.html" class="btn btn-lg">Get Started Free</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <div class="logo-icon">💪</div>
+            Fit<span>Life</span>
+          </a>
+          <p>Your all-in-one fitness platform. Transform your body, transform your life.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <a href="workouts.html">Workouts</a>
+          <a href="exercises.html">Exercises</a>
+        </div>
+        <div class="footer-col">
+          <h4>Tools</h4>
+          <a href="bmi.html">BMI Calculator</a>
+          <a href="favorites.html">Favorites</a>
+          <a href="dashboard.html">Dashboard</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="about.html">About Us</a>
+          <a href="contact.html">Contact</a>
+          <a href="login.html">Login</a>
+          <a href="signup.html">Sign Up</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 FitLife. All rights reserved. | Web Technology Project</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/firebase-config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

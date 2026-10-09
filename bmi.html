@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMI Calculator - FitLife</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo"><div class="logo-icon">💪</div>Fit<span>Life</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="workouts.html">Workouts</a>
+        <a href="exercises.html">Exercises</a>
+        <a href="bmi.html" class="active">BMI Calculator</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <div class="mobile-auth" id="mobileAuthGuest">
+          <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+          <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+        </div>
+        <div class="mobile-auth hidden" id="mobileAuthUser">
+          <a href="dashboard.html" class="btn btn-outline btn-sm">Dashboard</a>
+          <button class="btn btn-primary btn-sm" onclick="handleLogout()">Logout</button>
+        </div>
+      </div>
+      <div class="nav-auth">
+        <button class="theme-toggle" id="themeToggle">☀️</button>
+        <div id="authGuest">
+          <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+          <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+        </div>
+        <div id="authUser" class="hidden" style="display:flex;gap:10px;align-items:center;">
+          <a href="dashboard.html" class="btn btn-outline btn-sm">Dashboard</a>
+          <button class="btn btn-primary btn-sm" onclick="handleLogout()">Logout</button>
+        </div>
+      </div>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>BMI Calculator</h1>
+      <p>Calculate your Body Mass Index and understand your health status.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="bmi-container">
+        <form id="bmiForm">
+          <div class="form-group">
+            <label for="weight">Weight (kg)</label>
+            <input type="number" id="weight" placeholder="e.g. 70" min="1" max="300" step="0.1" required>
+          </div>
+          <div class="form-group">
+            <label for="height">Height (cm)</label>
+            <input type="number" id="height" placeholder="e.g. 170" min="50" max="250" step="0.1" required>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Calculate BMI</button>
+        </form>
+
+        <div class="bmi-result" id="bmiResult">
+          <div class="bmi-value" id="bmiValue">0</div>
+          <div class="bmi-category" id="bmiCategory">-</div>
+          <p class="bmi-message" id="bmiMessage"></p>
+        </div>
+      </div>
+
+      <!-- BMI Info -->
+      <div style="max-width:600px;margin:50px auto 0;">
+        <div class="section-header">
+          <h2>BMI Categories</h2>
+        </div>
+        <div class="features-grid" style="grid-template-columns:1fr 1fr;">
+          <div class="feature-card">
+            <h3 style="color:#3498db;">Underweight</h3>
+            <p>BMI less than 18.5</p>
+          </div>
+          <div class="feature-card">
+            <h3 style="color:#2ecc71;">Normal</h3>
+            <p>BMI 18.5 – 24.9</p>
+          </div>
+          <div class="feature-card">
+            <h3 style="color:#f39c12;">Overweight</h3>
+            <p>BMI 25 – 29.9</p>
+          </div>
+          <div class="feature-card">
+            <h3 style="color:#e74c3c;">Obese</h3>
+            <p>BMI 30 or above</p>
+          </div>
+        </div>
+        <p class="text-center text-muted mt-20" style="font-size:0.9rem;">
+          Formula: BMI = weight (kg) / [height (m)]²<br>
+          Note: BMI is a screening tool and does not diagnose body fatness or health.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom"><p>&copy; 2026 FitLife. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <script src="js/firebase-config.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/bmi.js"></script>
+</body>
+</html>

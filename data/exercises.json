@@ -1,0 +1,312 @@
+[
+  {
+    "id": 1,
+    "name": "Push Ups",
+    "target": "Chest, Triceps, Shoulders",
+    "difficulty": "Beginner",
+    "equipment": "None",
+    "category": "Strength",
+    "image": "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&h=400&fit=crop",
+    "instructions": [
+      "Start in a plank position with hands slightly wider than shoulder-width.",
+      "Keep your body in a straight line from head to heels.",
+      "Lower your chest toward the floor by bending your elbows.",
+      "Push back up to the starting position.",
+      "Repeat for the desired number of reps."
+    ],
+    "benefits": [
+      "Builds upper body strength",
+      "Improves core stability",
+      "No equipment needed",
+      "Can be modified for all levels"
+    ],
+    "sets": "3-4",
+    "reps": "10-15",
+    "rest": "60 seconds",
+    "safety": "Keep your core engaged and avoid sagging hips. Do not lock your elbows at the top."
+  },
+  {
+    "id": 2,
+    "name": "Squats",
+    "target": "Quads, Glutes, Hamstrings",
+    "difficulty": "Beginner",
+    "equipment": "None",
+    "category": "Strength",
+    "image": "https://images.unsplash.com/photo-1574680178050-55c6a6a96e0a?w=600&h=400&fit=crop",
+    "instructions": [
+      "Stand with feet shoulder-width apart.",
+      "Keep your chest up and core tight.",
+      "Lower your body by bending your knees and pushing hips back.",
+      "Go down until thighs are parallel to the floor.",
+      "Push through your heels to return to standing."
+    ],
+    "benefits": [
+      "Builds lower body strength",
+      "Improves mobility",
+      "Burns calories",
+      "Functional movement pattern"
+    ],
+    "sets": "3-4",
+    "reps": "12-15",
+    "rest": "60-90 seconds",
+    "safety": "Keep knees aligned with toes. Do not let knees cave inward."
+  },
+  {
+    "id": 3,
+    "name": "Bench Press",
+    "target": "Chest, Triceps, Shoulders",
+    "difficulty": "Intermediate",
+    "equipment": "Barbell, Bench",
+    "category": "Strength",
+    "image": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&h=400&fit=crop",
+    "instructions": [
+      "Lie flat on a bench with feet on the floor.",
+      "Grip the barbell slightly wider than shoulder-width.",
+      "Unrack the bar and lower it to mid-chest.",
+      "Press the bar back up until arms are extended.",
+      "Control the movement throughout."
+    ],
+    "benefits": [
+      "Builds chest mass and strength",
+      "Improves pressing power",
+      "Compound movement",
+      "Great for upper body development"
+    ],
+    "sets": "3-5",
+    "reps": "6-12",
+    "rest": "90-120 seconds",
+    "safety": "Always use a spotter for heavy lifts. Keep wrists straight and shoulders retracted."
+  },
+  {
+    "id": 4,
+    "name": "Pull Ups",
+    "target": "Back, Biceps, Shoulders",
+    "difficulty": "Advanced",
+    "equipment": "Pull-up Bar",
+    "category": "Strength",
+    "image": "https://images.unsplash.com/photo-1598971639058-a4a0b0a0a0a0?w=600&h=400&fit=crop",
+    "instructions": [
+      "Hang from a pull-up bar with an overhand grip.",
+      "Engage your core and pull your shoulder blades down.",
+      "Pull your body up until your chin clears the bar.",
+      "Lower yourself with control.",
+      "Repeat."
+    ],
+    "benefits": [
+      "Builds back width and strength",
+      "Improves grip strength",
+      "Bodyweight mastery",
+      "Excellent for posture"
+    ],
+    "sets": "3-4",
+    "reps": "5-10",
+    "rest": "90-120 seconds",
+    "safety": "Avoid swinging. Use assisted variations if needed. Keep shoulders healthy."
+  },
+  {
+    "id": 5,
+    "name": "Lunges",
+    "target": "Quads, Glutes, Hamstrings",
+    "difficulty": "Beginner",
+    "equipment": "None",
+    "category": "Strength",
+    "image": "https://images.unsplash.com/photo-1434682881908-b43d0467b798?w=600&h=400&fit=crop",
+    "instructions": [
+      "Stand upright with feet together.",
+      "Step forward with one leg and lower your body.",
+      "Front knee should be at 90 degrees.",
+      "Push back to the starting position.",
+      "Alternate legs."
+    ],
+    "benefits": [
+      "Improves balance",
+      "Unilateral leg strength",
+      "Hip mobility",
+      "Functional movement"
+    ],
+    "sets": "3",
+    "reps": "10-12 per leg",
+    "rest": "60 seconds",
+    "safety": "Keep front knee over ankle. Do not let the back knee slam the floor."
+  },
+  {
+    "id": 6,
+    "name": "Plank",
+    "target": "Core, Shoulders",
+    "difficulty": "Beginner",
+    "equipment": "None",
+    "category": "Core",
+    "image": "assets/plank-exercise.svg",
+    "instructions": [
+      "Start in a forearm plank position.",
+      "Keep elbows under shoulders.",
+      "Body should form a straight line.",
+      "Engage core and glutes.",
+      "Hold for the desired time."
+    ],
+    "benefits": [
+      "Core stability",
+      "Improves posture",
+      "Low impact",
+      "Builds endurance"
+    ],
+    "sets": "3",
+    "reps": "30-60 seconds",
+    "rest": "45 seconds",
+    "safety": "Avoid sagging hips or raising butt too high. Breathe steadily."
+  },
+  {
+    "id": 7,
+    "name": "Bicep Curl",
+    "target": "Biceps",
+    "difficulty": "Beginner",
+    "equipment": "Dumbbells",
+    "category": "Strength",
+    "image": "https://images.unsplash.com/photo-1581009146145-b5ef438e6f55?w=600&h=400&fit=crop",
+    "instructions": [
+      "Stand with dumbbells at your sides.",
+      "Keep elbows close to your body.",
+      "Curl the weights up toward your shoulders.",
+      "Squeeze at the top.",
+      "Lower with control."
+    ],
+    "benefits": [
+      "Isolates biceps",
+      "Builds arm strength",
+      "Easy to progress",
+      "Great for beginners"
+    ],
+    "sets": "3-4",
+    "reps": "10-15",
+    "rest": "45-60 seconds",
+    "safety": "Do not swing the weights. Keep controlled movement."
+  },
+  {
+    "id": 8,
+    "name": "Shoulder Press",
+    "target": "Shoulders, Triceps",
+    "difficulty": "Intermediate",
+    "equipment": "Dumbbells",
+    "category": "Strength",
+    "image": "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?w=600&h=400&fit=crop",
+    "instructions": [
+      "Sit or stand with dumbbells at shoulder height.",
+      "Press the weights overhead until arms are extended.",
+      "Lower back to shoulder height with control.",
+      "Keep core engaged throughout."
+    ],
+    "benefits": [
+      "Builds shoulder strength",
+      "Improves overhead mobility",
+      "Functional pressing pattern",
+      "Develops deltoids"
+    ],
+    "sets": "3-4",
+    "reps": "8-12",
+    "rest": "60-90 seconds",
+    "safety": "Do not arch your back excessively. Keep neutral spine."
+  },
+  {
+    "id": 9,
+    "name": "Deadlift",
+    "target": "Back, Glutes, Hamstrings",
+    "difficulty": "Advanced",
+    "equipment": "Barbell",
+    "category": "Strength",
+    "image": "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&h=400&fit=crop",
+    "instructions": [
+      "Stand with feet hip-width, bar over mid-foot.",
+      "Hinge at hips and grip the bar.",
+      "Keep back flat and core braced.",
+      "Drive through heels to stand up.",
+      "Lower the bar with control."
+    ],
+    "benefits": [
+      "Full body strength",
+      "Posterior chain development",
+      "Functional power",
+      "Improves posture"
+    ],
+    "sets": "3-5",
+    "reps": "5-8",
+    "rest": "120-180 seconds",
+    "safety": "Maintain neutral spine. Learn proper form before adding weight."
+  },
+  {
+    "id": 10,
+    "name": "Mountain Climbers",
+    "target": "Core, Shoulders, Cardio",
+    "difficulty": "Intermediate",
+    "equipment": "None",
+    "category": "Cardio",
+    "image": "https://images.unsplash.com/photo-1434608519344-49d77a699e1d?w=600&h=400&fit=crop",
+    "instructions": [
+      "Start in a high plank position.",
+      "Drive one knee toward your chest.",
+      "Quickly switch legs in a running motion.",
+      "Keep hips level and core tight.",
+      "Continue for the desired time."
+    ],
+    "benefits": [
+      "Elevates heart rate",
+      "Core engagement",
+      "Full body conditioning",
+      "No equipment needed"
+    ],
+    "sets": "3-4",
+    "reps": "30-45 seconds",
+    "rest": "30-45 seconds",
+    "safety": "Keep shoulders over wrists. Avoid bouncing hips."
+  },
+  {
+    "id": 11,
+    "name": "Jumping Jacks",
+    "target": "Full Body, Cardio",
+    "difficulty": "Beginner",
+    "equipment": "None",
+    "category": "Cardio",
+    "image": "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=600&h=400&fit=crop",
+    "instructions": [
+      "Stand with feet together and arms at sides.",
+      "Jump while spreading legs and raising arms overhead.",
+      "Jump back to starting position.",
+      "Maintain a steady rhythm."
+    ],
+    "benefits": [
+      "Warm-up exercise",
+      "Improves coordination",
+      "Cardiovascular fitness",
+      "Full body activation"
+    ],
+    "sets": "3",
+    "reps": "30-60 seconds",
+    "rest": "30 seconds",
+    "safety": "Land softly. Modify by stepping instead of jumping if needed."
+  },
+  {
+    "id": 12,
+    "name": "Leg Raises",
+    "target": "Lower Abs, Core",
+    "difficulty": "Intermediate",
+    "equipment": "None",
+    "category": "Core",
+    "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop",
+    "instructions": [
+      "Lie on your back with legs extended.",
+      "Place hands under lower back for support.",
+      "Raise legs until they are vertical.",
+      "Lower slowly without touching the floor.",
+      "Repeat."
+    ],
+    "benefits": [
+      "Targets lower abs",
+      "Improves core control",
+      "No equipment",
+      "Can be progressed easily"
+    ],
+    "sets": "3",
+    "reps": "10-15",
+    "rest": "45-60 seconds",
+    "safety": "Press lower back into the floor. Avoid swinging legs."
+  }
+]

@@ -1,0 +1,134 @@
+[
+  {
+    "id": 1,
+    "name": "Full Body Strength",
+    "category": "Strength Training",
+    "difficulty": "Intermediate",
+    "duration": "45 min",
+    "target": "Full Body",
+    "calories": 350,
+    "image": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&h=400&fit=crop",
+    "description": "A complete full-body strength workout targeting all major muscle groups."
+  },
+  {
+    "id": 2,
+    "name": "Muscle Building Blast",
+    "category": "Muscle Building",
+    "difficulty": "Advanced",
+    "duration": "60 min",
+    "target": "Upper Body",
+    "calories": 420,
+    "image": "https://images.unsplash.com/photo-1581009146145-b5ef438e6f55?w=600&h=400&fit=crop",
+    "description": "Intense muscle-building session focused on hypertrophy."
+  },
+  {
+    "id": 3,
+    "name": "Fat Burn HIIT",
+    "category": "Fat Loss",
+    "difficulty": "Intermediate",
+    "duration": "30 min",
+    "target": "Full Body",
+    "calories": 400,
+    "image": "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&h=400&fit=crop",
+    "description": "High-intensity interval training to maximize fat burn."
+  },
+  {
+    "id": 4,
+    "name": "Cardio Crush",
+    "category": "Cardio",
+    "difficulty": "Beginner",
+    "duration": "25 min",
+    "target": "Cardiovascular",
+    "calories": 280,
+    "image": "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&h=400&fit=crop",
+    "description": "Heart-pumping cardio session for endurance and stamina."
+  },
+  {
+    "id": 5,
+    "name": "Home No-Equipment",
+    "category": "Home Workout",
+    "difficulty": "Beginner",
+    "duration": "20 min",
+    "target": "Full Body",
+    "calories": 200,
+    "image": "https://images.unsplash.com/photo-1599058945522-28d584b6f14f?w=600&h=400&fit=crop",
+    "description": "Effective home workout requiring zero equipment."
+  },
+  {
+    "id": 6,
+    "name": "Flexibility Flow",
+    "category": "Flexibility",
+    "difficulty": "Beginner",
+    "duration": "30 min",
+    "target": "Flexibility",
+    "calories": 120,
+    "image": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&h=400&fit=crop",
+    "description": "Stretch and improve mobility with this flexibility routine."
+  },
+  {
+    "id": 7,
+    "name": "Beginner Foundations",
+    "category": "Beginner Workout",
+    "difficulty": "Beginner",
+    "duration": "30 min",
+    "target": "Full Body",
+    "calories": 180,
+    "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop",
+    "description": "Perfect starting point for fitness beginners."
+  },
+  {
+    "id": 8,
+    "name": "Advanced Power",
+    "category": "Advanced Workout",
+    "difficulty": "Advanced",
+    "duration": "75 min",
+    "target": "Full Body",
+    "calories": 500,
+    "image": "https://images.unsplash.com/photo-1517963879433-6ad2b056d712?w=600&h=400&fit=crop",
+    "description": "Challenging advanced workout for experienced athletes."
+  },
+  {
+    "id": 9,
+    "name": "Core Destroyer",
+    "category": "Strength Training",
+    "difficulty": "Intermediate",
+    "duration": "20 min",
+    "target": "Core",
+    "calories": 150,
+    "image": "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&h=400&fit=crop",
+    "description": "Intense core-focused session for a strong midsection."
+  },
+  {
+    "id": 10,
+    "name": "Lower Body Power",
+    "category": "Muscle Building",
+    "difficulty": "Intermediate",
+    "duration": "40 min",
+    "target": "Legs",
+    "calories": 320,
+    "image": "https://images.unsplash.com/photo-1434682881908-b43d0467b798?w=600&h=400&fit=crop",
+    "description": "Build powerful legs and glutes with this focused routine."
+  },
+  {
+    "id": 11,
+    "name": "Morning Energy Boost",
+    "category": "Cardio",
+    "difficulty": "Beginner",
+    "duration": "15 min",
+    "target": "Full Body",
+    "calories": 150,
+    "image": "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=600&h=400&fit=crop",
+    "description": "Quick morning routine to energize your day."
+  },
+  {
+    "id": 12,
+    "name": "Yoga & Stretch",
+    "category": "Flexibility",
+    "difficulty": "Beginner",
+    "duration": "40 min",
+    "target": "Flexibility",
+    "calories": 140,
+    "image": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&h=400&fit=crop",
+    "description": "Relaxing yoga and stretching for recovery and flexibility."
+  }
+]

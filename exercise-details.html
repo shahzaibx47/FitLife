@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise Details - FitLife</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo"><div class="logo-icon">💪</div>Fit<span>Life</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="workouts.html">Workouts</a>
+        <a href="exercises.html" class="active">Exercises</a>
+        <a href="bmi.html">BMI Calculator</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <div class="mobile-auth" id="mobileAuthGuest">
+          <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+          <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+        </div>
+        <div class="mobile-auth hidden" id="mobileAuthUser">
+          <a href="dashboard.html" class="btn btn-outline btn-sm">Dashboard</a>
+          <button class="btn btn-primary btn-sm" onclick="handleLogout()">Logout</button>
+        </div>
+      </div>
+      <div class="nav-auth">
+        <button class="theme-toggle" id="themeToggle">☀️</button>
+        <div id="authGuest">
+          <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+          <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+        </div>
+        <div id="authUser" class="hidden" style="display:flex;gap:10px;align-items:center;">
+          <a href="dashboard.html" class="btn btn-outline btn-sm">Dashboard</a>
+          <button class="btn btn-primary btn-sm" onclick="handleLogout()">Logout</button>
+        </div>
+      </div>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <div class="container">
+      <h1 id="detailTitle">Exercise Details</h1>
+      <p>Detailed guide with instructions, benefits, and safety tips.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div id="exerciseDetail">
+        <div class="spinner"></div>
+      </div>
+
+      <!-- Workout Timer Section -->
+      <div style="margin-top: 50px;">
+        <div class="section-header">
+          <span class="subtitle">Tools</span>
+          <h2>Workout Timer</h2>
+          <p>Use this timer while performing the exercise.</p>
+        </div>
+        <div class="timer-container">
+          <div class="timer-display" id="timerDisplay">00:00</div>
+          <div class="timer-controls">
+            <button class="btn btn-primary" id="timerStart">▶ Start</button>
+            <button class="btn btn-secondary" id="timerPause">⏸ Pause</button>
+            <button class="btn btn-outline" id="timerReset">↺ Reset</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom"><p>&copy; 2026 FitLife. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <script src="js/firebase-config.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/timer.js"></script>
+  <script>
+    // Load exercise details based on URL parameter
+    document.addEventListener('DOMContentLoaded', function () {
+      const params = new URLSearchParams(window.location.search);
+      const id = parseInt(params.get('id')) || 1;
+
+      fetch('data/exercises.json')
+        .then(function (res) { return res.json(); })
+        .then(function (exercises) {
+          const ex = exercises.find(function (e) { return e.id === id; }) || exercises[0];
+          renderDetail(ex);
+        })
+        .catch(function () {
+          document.getElementById('exerciseDetail').innerHTML =
+            '<div class="empty-state"><div class="icon">⚠️</div><h3>Failed to load exercise</h3></div>';
+        });
+    });
+
+    function renderDetail(ex) {
+      document.getElementById('detailTitle').textContent = ex.name;
+      document.title = ex.name + ' - FitLife';
+
+      const favs = JSON.parse(localStorage.getItem('fitlife-favorites') || '[]');
+      const isFav = favs.includes(ex.id);
+
+      let instructionsHtml = '';
+      ex.instructions.forEach(function (step, i) {
+        instructionsHtml += '<li><strong>Step ' + (i + 1) + ':</strong> ' + step + '</li>';
+      });
+
+      let benefitsHtml = '';
+      ex.benefits.forEach(function (b) {
+        benefitsHtml += '<li>' + b + '</li>';
+      });
+
+      document.getElementById('exerciseDetail').innerHTML = `
+        <div class="detail-layout fade-in">
+          <div>
+            <img src="${ex.image}" alt="${ex.name}" class="detail-img"
+                 onerror="this.src='https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&h=400&fit=crop'">
+          </div>
+          <div class="detail-info">
+            <h1>${ex.name}</h1>
+            <div class="detail-meta">
+              <span class="badge badge-info">${ex.category}</span>
+              <span class="badge badge-primary">${ex.difficulty}</span>
+              <span class="badge badge-muted">${ex.equipment}</span>
+            </div>
+            <p style="color:var(--text-secondary);margin-bottom:15px;"><strong>Target:</strong> ${ex.target}</p>
+
+            <div class="detail-stats">
+              <div class="detail-stat">
+                <div class="label">Sets</div>
+                <div class="value">${ex.sets}</div>
+              </div>
+              <div class="detail-stat">
+                <div class="label">Reps</div>
+                <div class="value">${ex.reps}</div>
+              </div>
+              <div class="detail-stat">
+                <div class="label">Rest</div>
+                <div class="value">${ex.rest}</div>
+              </div>
+            </div>
+
+            <div class="detail-section">
+              <h3>📋 Instructions</h3>
+              <ul>${instructionsHtml}</ul>
+            </div>
+
+            <div class="detail-section">
+              <h3>✅ Benefits</h3>
+              <ul>${benefitsHtml}</ul>
+            </div>
+
+            <div class="detail-section">
+              <h3>⚠️ Safety Tips</h3>
+              <p style="color:var(--text-secondary);">${ex.safety}</p>
+            </div>
+
+            <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;">
+              <button class="btn btn-primary" id="favDetailBtn" onclick="toggleFavDetail(${ex.id})">
+                ${isFav ? '❤️ Remove from Favorites' : '🤍 Add to Favorites'}
+              </button>
+              <a href="exercises.html" class="btn btn-outline">← Back to Exercises</a>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function toggleFavDetail(id) {
+      let favs = JSON.parse(localStorage.getItem('fitlife-favorites') || '[]');
+      const idx = favs.indexOf(id);
+      const btn = document.getElementById('favDetailBtn');
+      if (idx > -1) {
+        favs.splice(idx, 1);
+        if (btn) btn.textContent = '🤍 Add to Favorites';
+      } else {
+        favs.push(id);
+        if (btn) btn.textContent = '❤️ Remove from Favorites';
+      }
+      localStorage.setItem('fitlife-favorites', JSON.stringify(favs));
+    }
+  </script>
+</body>
+</html>

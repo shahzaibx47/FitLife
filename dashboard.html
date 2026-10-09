@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - FitLife</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo"><div class="logo-icon">💪</div>Fit<span>Life</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="workouts.html">Workouts</a>
+        <a href="exercises.html">Exercises</a>
+        <a href="bmi.html">BMI Calculator</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <div class="mobile-auth" id="mobileAuthGuest">
+          <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+          <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+        </div>
+        <div class="mobile-auth hidden" id="mobileAuthUser">
+          <a href="dashboard.html" class="btn btn-outline btn-sm">Dashboard</a>
+          <button class="btn btn-primary btn-sm" onclick="handleLogout()">Logout</button>
+        </div>
+      </div>
+      <div class="nav-auth">
+        <button class="theme-toggle" id="themeToggle">☀️</button>
+        <div id="authGuest">
+          <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+          <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+        </div>
+        <div id="authUser" class="hidden" style="display:flex;gap:10px;align-items:center;">
+          <a href="dashboard.html" class="btn btn-outline btn-sm">Dashboard</a>
+          <button class="btn btn-primary btn-sm" onclick="handleLogout()">Logout</button>
+        </div>
+      </div>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="dashboard-header">
+    <div class="container">
+      <h1>Welcome, <span id="dashUserName">User</span>! 👋</h1>
+      <p id="dashUserEmail" class="text-muted"></p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="dashboard-stats">
+        <div class="dash-stat-card">
+          <div class="dash-stat-icon">❤️</div>
+          <div class="dash-stat-info">
+            <h3 id="favCount">0</h3>
+            <p>Favorite Exercises</p>
+          </div>
+        </div>
+        <div class="dash-stat-card">
+          <div class="dash-stat-icon">🏋️</div>
+          <div class="dash-stat-info">
+            <h3>50+</h3>
+            <p>Available Workouts</p>
+          </div>
+        </div>
+        <div class="dash-stat-card">
+          <div class="dash-stat-icon">📋</div>
+          <div class="dash-stat-info">
+            <h3>100+</h3>
+            <p>Exercises</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-section">
+        <h2>Quick Actions</h2>
+        <div class="quick-actions">
+          <a href="workouts.html" class="quick-action-btn">
+            <span class="icon">🏋️</span>
+            <span>Browse Workouts</span>
+          </a>
+          <a href="exercises.html" class="quick-action-btn">
+            <span class="icon">📋</span>
+            <span>Browse Exercises</span>
+          </a>
+          <a href="bmi.html" class="quick-action-btn">
+            <span class="icon">📊</span>
+            <span>BMI Calculator</span>
+          </a>
+          <a href="favorites.html" class="quick-action-btn">
+            <span class="icon">❤️</span>
+            <span>My Favorites</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="text-center mt-30">
+        <button class="btn btn-outline" onclick="handleLogout()">Logout</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom"><p>&copy; 2026 FitLife. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <script src="js/firebase-config.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
